@@ -1,0 +1,68 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+.container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height:100vh;
+    background: linear-gradient(white,rgb(200,200,200));
+}
+.main{
+    display:flex;
+    flex-direction: column;
+    width: 430px;
+    /* border:1px solid black; */
+    background-color:white;
+    box-shadow: 5px 5px 8px 10px #888888;
+}
+.main .login-signup-buttons{
+    display:flex;
+    text-align: center;
+    flex-direction:row;
+    justify-content: space-between;
+}
+.login-b,.signup-b{
+    /* padding:20px;
+    background: gray;
+    font-size:44px; */
+    width:100%;
+    padding:20px;
+    font-size:32px;
+    cursor: pointer;
+    transition:0.1s
+
+}
+
+.signup-form{
+    padding:20px;
+    display:flex;
+    flex-direction: column;
+    align-items: stretch;
+
+}
+.input-p input,.input-p button{
+    padding:10px;
+    display:block;
+    width:100%;
+    padding-top:15px;
+    padding-bottom:15px;
+    cursor: pointer;
+
+}
+#checkbox{
+    display:inline-block;
+    width:10px;
+    
+}
+.input-p input{
+    margin-bottom:25px;
+}
+
+.login-form1{
+    display:none;
+}
