@@ -1,0 +1,8 @@
+.footer{
+    height: 60px;
+    background-color: rgb(50,50,50);
+    color:white;
+    /* position:absolute; */
+    /* bottom:0; */
+    width:100%;
+}
