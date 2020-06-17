@@ -1,1 +1,36 @@
-<p>signup works!</p>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+<div class="main">
+<div class="SignUpForm">
+    <form #f="ngForm">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input #nameref="ngModel" [(ngModel)]="NameProp" name="name" type="text" class="form-control" placeholder="Enter your Name" id="name">
+        </div>
+        <div class="form-group">
+            <label for="uname">Username:</label>
+            <input #emailref="ngModel" [(ngModel)]="UserProp" name="email" type="text" class="form-control" placeholder="Enter your Username" id="uname">
+        </div>
+        <div class="form-group">
+            <label for="mobile">Mobile No:</label>
+            <input #emailref="ngModel" [(ngModel)]="MobProp" name="mobile" type="text" class="form-control" placeholder="Enter your Mobile number" id="mobile">
+        </div>
+        <div class="form-group">
+            <label for="email">Email address:</label>
+            <input #emailref="ngModel" [(ngModel)]="EmailProp" name="email" type="email" class="form-control" placeholder="Enter your Email" id="email">
+        </div>
+        <div class="form-group">
+            <label for="pass">Password:</label>
+            <input #passref="ngModel" [(ngModel)]="PassProp" name="password" type="password" class="form-control" placeholder="Enter your Password" id="pass">
+        </div>
+        <div class="form-group">
+            <label for="rpass">Confirm your Password:</label>
+            <input #passref="ngModel" [(ngModel)]="RePassProp" name="password" type="password" class="form-control" placeholder="Enter your Password again" id="rpass">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="SignUp()">SignUp</button>
+    </form>
+</div>
+</div>

@@ -1,0 +1,8 @@
+.main{
+    width: 100%;
+    background: linear-gradient(-45deg, cyan, lightgreen);
+}
+.SignUpForm{
+    width: 60%;
+    margin: 0 auto;
+}
