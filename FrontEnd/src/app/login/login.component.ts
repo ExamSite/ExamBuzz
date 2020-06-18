@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
         if (response.status == "ok") {
           localStorage.setItem('name', response.data[0].name);
           localStorage.setItem('email', response.data[0].email);
-          localStorage.setItem('role', response.data[0].role);
           this.router.navigate(['/dashboard']);
         }
         else {
