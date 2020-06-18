@@ -10,10 +10,14 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { SignupComponent } from './signup/signup.component';
+
 import { FormsModule } from '@angular/forms';
+
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { WebsiteComponent } from './website/website.component';
+
+import { HttpClientModule } from'@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -32,7 +36,8 @@ import { WebsiteComponent } from './website/website.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

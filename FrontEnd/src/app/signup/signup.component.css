@@ -1,8 +1,21 @@
 .main{
     width: 100%;
-    background: linear-gradient(-45deg, cyan, lightgreen);
+    /* background: linear-gradient(-45deg, cyan, lightgreen); */
+    background-color: rgb(255,207,89);
+    height:600px;
+
 }
 .SignUpForm{
-    width: 60%;
+    width: 40%;
     margin: 0 auto;
+
 }
+.SignUpForm label{
+    color:rgb(50,50,50);
+    /* font-size: 30px; */
+    font-weight: 500;
+}
+/* .form-group{
+    padding:10px;
+    padding-left:0;
+} */

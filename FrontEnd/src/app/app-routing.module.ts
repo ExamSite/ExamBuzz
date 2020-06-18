@@ -8,6 +8,7 @@ import { SignupComponent } from './signup/signup.component';
 import { WebsiteComponent } from './website/website.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
+import { AuthGuard } from './auth.guard';
 
 
 const routes: Routes = [
@@ -20,7 +21,7 @@ const routes: Routes = [
 
 
   ]},
-  {path:"dashboard",component:DashboardComponent,children:[
+  {path:"dashboard",canActivate:[AuthGuard],component:DashboardComponent,children:[
     {path:"",component:ProfileComponent}
   ]}
   
