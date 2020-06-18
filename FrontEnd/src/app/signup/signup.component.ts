@@ -14,7 +14,7 @@ export class SignupComponent implements OnInit {
   MobProp;
   EmailProp;
   PassProp;
-  RePassProp;
+  //RePassProp;
   constructor(private ds:DataService,private router:Router) { }
 
   ngOnInit(): void {

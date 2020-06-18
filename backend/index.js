@@ -4,10 +4,10 @@ const cors = require('cors');
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectId;
 
-var dbName = "ProData"
+var dbName = "GrrasProject"
 
 // var client = new MongoClient( 'mongodb://localhost:27017/mypro', {useNewUrlParser:true});
-var client = new MongoClient( 'mongodb://localhost:27017/ProData', {useNewUrlParser:true});
+var client = new MongoClient( 'mongodb+srv://root:root@cluster.i5ume.gcp.mongodb.net/dbName?retryWrites=true&w=majority', {useNewUrlParser:true});
 
 var connection;
 client.connect((err, con)=>{
@@ -54,7 +54,7 @@ app.post('/sign-in', bodyParser.json() ,(req,res)=>{
 
 app.post('/sign-up', bodyParser.json() ,(req,res)=>{
 
-    var collection = connection.db(dbName).collection('users');
+    var collection = connection.db(dbName).collection('Users');
 
 collection.find({email:req.body.email}).toArray((err,docs)=>{
     if(!err && docs.length>0)
