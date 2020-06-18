@@ -19,29 +19,17 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  SignUp(){
-    alert("hello")
-
-
-
-    this.ds.signUp({name:this.NameProp,user:this.UserProp,mobile:this.MobProp,email:this.EmailProp,password:this.PassProp})
-    .subscribe((response)=>{
-      alert("hello")
-      if(response.status=="ok"){
-        // localStorage.setItem('name',response.data[0].name)
-        // localStorage.setItem('email',response.data[0].email)
-
-        // this.router.navigate(['/dashboard'])
-
-        alert("registration succesfull you will be redirected to signin")
-
-        this.router.navigate(['/login'])
-      }
-      else{
-        alert("something went wrong")
-      }
-    })
-
-    }
+  SignUp() {
+    this.ds.SignUp({ Name: this.NameProp, USername: this.UserProp, Mobile: this.MobProp, Email: this.EmailProp, Password: this.PassProp })
+      .subscribe((response) => {
+        if (response.status == "ok") {
+          alert('registration successfull please login to use');
+          this.router.navigate(['/login']);
+        }
+        else {
+          alert("Email Already Resigtered");
+        }
+      })
+  }
 
 }

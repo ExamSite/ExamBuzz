@@ -8,10 +8,10 @@ export class DataService {
 
   constructor(private http:HttpClient) { }
 
-  signUp(d):any{
+  SignUp(d):any{
     return this.http.post('http://localhost:5000/sign-up', d);
   }
-  signIn(d):any{
+  LogIn(d):any{
     return this.http.post('http://localhost:5000/sign-in',d)
   }
 

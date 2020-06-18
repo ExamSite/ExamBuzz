@@ -9,8 +9,7 @@ import { DataService } from '../data.service';
 })
 export class LoginComponent implements OnInit {
 
-  UserProp;
-
+  EmailProp;
   PassProp;
   constructor(private router:Router,private ds:DataService) { }
 
@@ -19,23 +18,19 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/dashboard'])
     }
   }
-  LogIn(){
-
-    this.ds.signIn({email:this.UserProp,password:this.PassProp})
-    .subscribe((response)=>{
-      if(response.status=="ok"){
-        localStorage.setItem('name',response.data[0].name)
-        localStorage.setItem('email',response.data[0].email)
-        this.router.navigate(['/dashboard'])
-      }
-      else{
-        alert("dont be smart")
-        this.router.navigate(['/signup'])
-      }
-    })
-
-
-    
+  LogIn() {
+    this.ds.LogIn({ Email: this.EmailProp, Password: this.PassProp })
+      .subscribe((response) => {
+        if (response.status == "ok") {
+          localStorage.setItem('name', response.data[0].name);
+          localStorage.setItem('email', response.data[0].email);
+          localStorage.setItem('role', response.data[0].role);
+          this.router.navigate(['/dashboard']);
+        }
+        else {
+          alert("credentials are incorrect");
+        }
+      })
   }
 
 }
