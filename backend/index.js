@@ -4,17 +4,13 @@ const cors = require('cors');
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectId;
 
-var dbName = "sampledb"
+var dbName = "ProData"
 
 // var client = new MongoClient( 'mongodb://localhost:27017/mypro', {useNewUrlParser:true});
-var client = new MongoClient( 'mongodb://localhost:27017/mypro', {useNewUrlParser:true});
-
-
-
+var client = new MongoClient( 'mongodb://localhost:27017/ProData', {useNewUrlParser:true});
 
 var connection;
 client.connect((err, con)=>{
-
         if(!err)
         {
                 connection = con;
@@ -25,30 +21,23 @@ client.connect((err, con)=>{
         }
 })
 
-
-
 const app = express();
-
 app.use(cors());
 
-
-app.get('/', (req, res)=>{
+/*app.get('/', (req, res)=>{
 
     res.send({status:"ok", data:"this is a test api"});
 })
 
-
-
-
 app.get('/user', (req, res)=>{
     var id= req.query.id;
     res.send({status:"ok", data:[{name:"X", age:78, id:id},{name:"Y", age:67}]});
-})
+})*/
 
 
 app.post('/sign-in', bodyParser.json() ,(req,res)=>{
 
-        var collection = connection.db(dbName).collection('users');
+        var collection = connection.db(dbName).collection('Users');
 
         collection.find(req.body).toArray((err,docs)=>{
             if(!err && docs.length>0)
@@ -87,20 +76,6 @@ collection.find({email:req.body.email}).toArray((err,docs)=>{
     }
 })
 
-
-   
-   
-   
-   
-   
-   
-   
-
-
-
-
-
-    
     
 })
     
