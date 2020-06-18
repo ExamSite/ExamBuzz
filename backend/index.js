@@ -4,10 +4,10 @@ const cors = require('cors');
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectId;
 
-var dbName = "sampledb"
+var dbName = "ProData"
 
 // var client = new MongoClient( 'mongodb://localhost:27017/mypro', {useNewUrlParser:true});
-var client = new MongoClient( 'mongodb://localhost:27017/mypro', {useNewUrlParser:true});
+var client = new MongoClient( 'mongodb://localhost:27017/ProData', {useNewUrlParser:true});
 
 var connection;
 client.connect((err, con)=>{
@@ -37,7 +37,7 @@ app.get('/user', (req, res)=>{
 
 app.post('/sign-in', bodyParser.json() ,(req,res)=>{
 
-        var collection = connection.db(dbName).collection('users');
+        var collection = connection.db(dbName).collection('Users');
 
         collection.find(req.body).toArray((err,docs)=>{
             if(!err && docs.length>0)
