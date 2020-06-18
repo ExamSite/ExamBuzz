@@ -9,12 +9,8 @@ var dbName = "sampledb"
 // var client = new MongoClient( 'mongodb://localhost:27017/mypro', {useNewUrlParser:true});
 var client = new MongoClient( 'mongodb://localhost:27017/mypro', {useNewUrlParser:true});
 
-
-
-
 var connection;
 client.connect((err, con)=>{
-
         if(!err)
         {
                 connection = con;
@@ -25,25 +21,18 @@ client.connect((err, con)=>{
         }
 })
 
-
-
 const app = express();
-
 app.use(cors());
 
-
-app.get('/', (req, res)=>{
+/*app.get('/', (req, res)=>{
 
     res.send({status:"ok", data:"this is a test api"});
 })
 
-
-
-
 app.get('/user', (req, res)=>{
     var id= req.query.id;
     res.send({status:"ok", data:[{name:"X", age:78, id:id},{name:"Y", age:67}]});
-})
+})*/
 
 
 app.post('/sign-in', bodyParser.json() ,(req,res)=>{
@@ -87,20 +76,6 @@ collection.find({email:req.body.email}).toArray((err,docs)=>{
     }
 })
 
-
-   
-   
-   
-   
-   
-   
-   
-
-
-
-
-
-    
     
 })
     
