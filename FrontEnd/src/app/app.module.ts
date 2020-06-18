@@ -17,7 +17,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { WebsiteComponent } from './website/website.component';
 
-import { HttpClientModule } from'@angular/common/http'
+import { HttpClientModule } from'@angular/common/http';
+import { ProfileHeaderComponent } from './profile-header/profile-header.component'
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { HttpClientModule } from'@angular/common/http'
     SignupComponent,
     DashboardComponent,
     ProfileComponent,
-    WebsiteComponent
+    WebsiteComponent,
+    ProfileHeaderComponent
   ],
   imports: [
     BrowserModule,
