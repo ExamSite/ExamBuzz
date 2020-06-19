@@ -37,15 +37,22 @@ app.get('/user', (req, res)=>{
 
 app.post('/sign-in', bodyParser.json() ,(req,res)=>{
     var collection = connection.db(dbName).collection('Users');
-    collection.find(req.body).toArray((err,docs)=>{
-        if(!err && docs.length>0)
-        {
-            res.send({ status:"ok", data:docs });
-        }
-        else{
-            res.send({status:"failed", data:err});
-        }
-    })
+    if(req.body.email)
+    {
+        collection.find(req.body).toArray((err,docs)=>{
+            if(!err && docs.length>0)
+            {
+                res.send({ status:"ok", data:docs });
+            }
+            else
+            {
+                res.send({status:"failed", data:err});
+            }
+        })
+    }
+    else {
+        res.send({ status: "failed", data: err });
+    }
 })
 
 
