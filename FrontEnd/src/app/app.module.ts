@@ -18,7 +18,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { WebsiteComponent } from './website/website.component';
 
 import { HttpClientModule } from'@angular/common/http';
-import { ProfileHeaderComponent } from './profile-header/profile-header.component'
+import { ProfileHeaderComponent } from './profile-header/profile-header.component';
+import { ModalClassComponent } from './modal-class/modal-class.component';
+import { CreateexamComponent } from './createexam/createexam.component';
+import { JoinexamComponent } from './joinexam/joinexam.component'
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { ProfileHeaderComponent } from './profile-header/profile-header.componen
     DashboardComponent,
     ProfileComponent,
     WebsiteComponent,
-    ProfileHeaderComponent
+    ProfileHeaderComponent,
+    ModalClassComponent,
+    CreateexamComponent,
+    JoinexamComponent
   ],
   imports: [
     BrowserModule,

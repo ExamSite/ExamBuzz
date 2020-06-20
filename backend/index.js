@@ -55,13 +55,19 @@ app.post('/sign-in', bodyParser.json() ,(req,res)=>{
 app.post('/sign-up', bodyParser.json() ,(req,res)=>{
 
     var collection = connection.db(dbName).collection('Users');
+    console.log(collection)
 
 collection.find({email:req.body.email}).toArray((err,docs)=>{
-    if(!err && docs.length>0)
-    {
-       res.send({status:"failed", data:"email already Exist"})
-    }
-    else{
+    // console.log(req.body.email)
+    // if(!err && docs.length>0)
+    // {
+    //    res.send({status:"failed", data:"email already Exist"})
+    //    console.log("error")
+    //    console.log(docs)
+    //    console.log(req.body.email)
+    // //    console.log(collection.find({email:req.body.email}))
+    // }
+    // else{
         
         collection.insert(req.body, (err,result)=>{
             if(!err)
@@ -73,7 +79,7 @@ collection.find({email:req.body.email}).toArray((err,docs)=>{
             }
         })
 
-    }
+    // }
 })
 
     

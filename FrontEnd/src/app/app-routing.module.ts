@@ -9,10 +9,13 @@ import { WebsiteComponent } from './website/website.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './auth.guard';
+import { ModalClassComponent } from './modal-class/modal-class.component';
+import { CreateexamComponent } from './createexam/createexam.component';
+import { JoinexamComponent } from './joinexam/joinexam.component';
 
 
 const routes: Routes = [
-  {path:"",component:WebsiteComponent,children:[
+    {path:"",component:WebsiteComponent,children:[
     {path:'',component:HomeComponent},
     {path:'about',component:AboutComponent},
     {path:'contacts',component:ContactsComponent},
@@ -22,7 +25,16 @@ const routes: Routes = [
 
   ]},
   {path:"dashboard",canActivate:[AuthGuard],component:DashboardComponent,children:[
-    {path:"",component:ProfileComponent}
+    {path:"",component:ProfileComponent,children:[
+      {path:"modal",component:ModalClassComponent},
+      {path:"create",component:CreateexamComponent},
+      {path:"join",component:JoinexamComponent}
+    
+    ]},
+    // {path:"modal",component:ModalClassComponent},
+
+    
+  
   ]}
   
   
