@@ -32,7 +32,7 @@ const app = express();
 app.use(cors());
 
 
-app.get('/', (req, res)=>{
+/*app.get('/', (req, res)=>{
 
     res.send({status:"ok", data:"this is a test api"});
 })
@@ -43,11 +43,10 @@ app.get('/', (req, res)=>{
 app.get('/user', (req, res)=>{
     var id= req.query.id;
     res.send({status:"ok", data:[{name:"X", age:78, id:id},{name:"Y", age:67}]});
-})
+})*/
 
 
 app.post('/sign-in', bodyParser.json() ,(req,res)=>{
-
         var collection = connection.db(dbName).collection('Users');
 
         collection.find(req.body).toArray((err,docs)=>{
