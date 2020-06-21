@@ -21,7 +21,10 @@ import { HttpClientModule } from'@angular/common/http';
 import { ProfileHeaderComponent } from './profile-header/profile-header.component';
 import { ModalClassComponent } from './modal-class/modal-class.component';
 import { CreateexamComponent } from './createexam/createexam.component';
-import { JoinexamComponent } from './joinexam/joinexam.component'
+import { JoinexamComponent } from './joinexam/joinexam.component';
+import { CreationPageComponent } from './creation-page/creation-page.component';
+import { QuestionCardComponent } from './question-card/question-card.component';
+import { CreatedExamsComponent } from './created-exams/created-exams.component'
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { JoinexamComponent } from './joinexam/joinexam.component'
     ProfileHeaderComponent,
     ModalClassComponent,
     CreateexamComponent,
-    JoinexamComponent
+    JoinexamComponent,
+    CreationPageComponent,
+    QuestionCardComponent,
+    CreatedExamsComponent
   ],
   imports: [
     BrowserModule,

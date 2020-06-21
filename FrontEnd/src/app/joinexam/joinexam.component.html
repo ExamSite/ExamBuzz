@@ -1,19 +1,22 @@
 <div [class]="dynamicbg" id="modal-bg">
-    <div class="modal">
+    <form class="modal" #f="ngForm">
         <!-- <div class="inputbox">
             <input type="text" name="examname" placeholder="Exam Name">
         </div> -->
         <div class="inputbox">
-            <input type="text" placeholder="exam id">
+            <input #examIdRef="ngModel" [(ngModel)]="examIdProp" name="examIdRef" type="text" placeholder="exam id">
         </div>
         <div class="inputbox">
-            <input type="text" placeholder="exam password">
+            <input #examPassRef="ngModel" [(ngModel)]="examPassProp" name="examPassRef" type="text" placeholder="exam password">
         </div>
+        
+        <div class="inputbox">
+            <button (click)="join()">Join exam</button>
+        </div>
+
         <span class="close" (click)="changeClass()">X</span>
-        <div class="inputbox">
-            <button>Join exam</button>
-        </div>
-    </div>
+    </form>
+
     
 </div>
 

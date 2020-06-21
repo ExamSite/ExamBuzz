@@ -7,7 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./joinexam.component.css']
 })
 export class JoinexamComponent implements OnInit {
-  dynamicbg
+  dynamicbg;
+  examIdProp;
+  examPassProp;
+
   constructor(private router:Router) { }
 
   ngOnInit(): void {
@@ -20,6 +23,9 @@ export class JoinexamComponent implements OnInit {
     this.router.navigate(['/dashboard/modal'])
 
 
+    }
+    join(){
+      alert(this.examIdProp)
     }
 
 }

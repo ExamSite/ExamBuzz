@@ -14,6 +14,15 @@ export class DataService {
   LogIn(d):any{
     return this.http.post('http://localhost:5000/sign-in',d)
   }
+  CreatePaper(d):any{
+    return this.http.post('http://localhost:5000/create-paper',d)
+  }
+  JoinPaper(d):any{
+    return this.http.post('http://localhost:5000/join-paper',d)
+  }
+  FetchPaperData(d):any{
+    return this.http.post('http://localhost:5000/my-created-papers',d)
+  }
 
  
 }
