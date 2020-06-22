@@ -17,13 +17,19 @@ export class DataService {
   CreatePaper(d):any{
     return this.http.post('http://localhost:5000/create-paper',d)
   }
-  JoinPaper(d):any{
-    return this.http.post('http://localhost:5000/join-paper',d)
-  }
+  // JoinPaper(d):any{
+  //   return this.http.post('http://localhost:5000/join-paper',d)
+  // }
   FetchPaperData(d):any{
     return this.http.post('http://localhost:5000/my-created-papers',d)
   }
   submitPaper(d):any{
     return this.http.post('http://localhost:5000/submit-paper',d)
+  }
+  showPaperDetail(d):any{
+    return this.http.post('http://localhost:5000/show-paper-detail',d)
+  }
+  joinPaper(d):any{
+    return this.http.post('http://localhost:5000/join-paper',d)
   }
 }

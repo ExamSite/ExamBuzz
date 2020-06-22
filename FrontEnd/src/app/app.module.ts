@@ -24,7 +24,9 @@ import { CreateexamComponent } from './createexam/createexam.component';
 import { JoinexamComponent } from './joinexam/joinexam.component';
 import { CreationPageComponent } from './creation-page/creation-page.component';
 import { QuestionCardComponent } from './question-card/question-card.component';
-import { CreatedExamsComponent } from './created-exams/created-exams.component'
+import { CreatedExamsComponent } from './created-exams/created-exams.component';
+import { UpdateExamComponent } from './update-exam/update-exam.component';
+import { AttemptingPaperComponent } from './attempting-paper/attempting-paper.component'
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { CreatedExamsComponent } from './created-exams/created-exams.component'
     JoinexamComponent,
     CreationPageComponent,
     QuestionCardComponent,
-    CreatedExamsComponent
+    CreatedExamsComponent,
+    UpdateExamComponent,
+    AttemptingPaperComponent
   ],
   imports: [
     BrowserModule,

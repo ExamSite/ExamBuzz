@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-joinexam',
@@ -11,7 +12,7 @@ export class JoinexamComponent implements OnInit {
   examIdProp;
   examPassProp;
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private ds:DataService) { }
 
   ngOnInit(): void {
     this.dynamicbg="active"
@@ -26,6 +27,18 @@ export class JoinexamComponent implements OnInit {
     }
     join(){
       alert(this.examIdProp)
+      alert(this.examPassProp)
+
+      this.ds.joinPaper({examId:this.examIdProp,password:this.examPassProp})
+      .subscribe((response)=>{
+        if(response.status=="ok"){
+          alert("response status ok and " + JSON.stringify(response.data))
+          this.router.navigate(['dashboard/attempting-paper'])
+        }
+        else{
+          alert("enter right examid or password")
+        }
+      })
     }
 
 }

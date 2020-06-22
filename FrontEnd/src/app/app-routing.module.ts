@@ -14,6 +14,8 @@ import { CreateexamComponent } from './createexam/createexam.component';
 import { JoinexamComponent } from './joinexam/joinexam.component';
 import { CreationPageComponent } from './creation-page/creation-page.component';
 import { CreatedExamsComponent } from './created-exams/created-exams.component';
+import { UpdateExamComponent } from './update-exam/update-exam.component';
+import { AttemptingPaperComponent } from './attempting-paper/attempting-paper.component';
 
 
 const routes: Routes = [
@@ -33,7 +35,9 @@ const routes: Routes = [
       {path:"modal",component:ModalClassComponent},
       {path:"create",component:CreateexamComponent},
       {path:"join",component:JoinexamComponent},
-      {path:"creationPage",component:CreationPageComponent}
+      {path:"creationPage",component:CreationPageComponent},
+      {path:"updateexam",component:UpdateExamComponent},
+      {path:"attempting-paper",component:AttemptingPaperComponent}
     
     ]},
     // {path:"modal",component:ModalClassComponent},

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Data } from '@angular/router';
+import { Data, Router } from '@angular/router';
 import { DataService } from '../data.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class CreatedExamsComponent implements OnInit {
 
   createdExams;
 
-  constructor(private ds:DataService) { }
+  constructor(private ds:DataService,private router:Router) { }
 
   ngOnInit(): void {
     this.fetchingData()
@@ -36,9 +36,12 @@ export class CreatedExamsComponent implements OnInit {
     })
   }
 
-  // fun(d){
-  //   alert()
-  // }
+  fun(d){
+    // alert("hello")
+    // alert(d.examId)
+    this.router.navigate(['/dashboard/updateexam'],{queryParams:{examId:d.examId}})
+
+  }
 
 
 }

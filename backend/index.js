@@ -11,8 +11,8 @@ const app = express();
 app.use(cors());
 
 // var client = new MongoClient( 'mongodb://localhost:27017/mypro', {useNewUrlParser:true});
-var client = new MongoClient('mongodb+srv://root:root@cluster.i5ume.gcp.mongodb.net/dbName?retryWrites=true&w=majority', { useNewUrlParser: true });
-//var client = new MongoClient('mongodb+srv://admin:admin@cluster0-c4rib.mongodb.net/dbName?retryWrites=true&w=majority', { useNewUrlParser: true });
+// var client = new MongoClient('mongodb+srv://root:root@cluster.i5ume.gcp.mongodb.net/dbName?retryWrites=true&w=majority', { useNewUrlParser: true });
+var client = new MongoClient('mongodb+srv://admin:admin@cluster0-c4rib.mongodb.net/dbName?retryWrites=true&w=majority', { useNewUrlParser: true });
 
 var connection;
 client.connect((err, con) => {
@@ -141,6 +141,40 @@ app.post('/submit-paper',bodyParser.json(),(req,res)=>{
         }
         else{
             res.send({status:"failed",data:"could not insert questions"});
+        }
+    })
+
+})
+
+app.post('/show-paper-detail',bodyParser.json(),(req,res)=>{
+    var collection = connection.db(dbName).collection('Exams');
+    console.log(req.body.examId)
+
+    collection.find({"examId":req.body.examId}).toArray((err,docs)=>{
+        console.log("printing exam id" + req.body.examId)
+        if(!err && docs.length>0){
+            res.send({status:"ok",data:docs[0].questions})
+            console.log(docs[0].questions)
+        }
+        else{
+            res.send({status:"failed",data:"bola na nhi mila"})
+        }
+    })
+
+})
+
+
+//join paper
+
+app.post('/join-paper',bodyParser.json(),(req,res)=>{
+    var collection = connection.db(dbName).collection('Exams');
+    collection.find({"examId":req.body.examId,"password":req.body.password}).toArray((err,docs)=>{
+        if(!err && docs.length>0){
+            res.send({status:"ok",data:docs[0].questions})
+            console.log(docs[0].questions)
+        }
+        else{
+            res.send({status:"not ok",data:"nothing found "})
         }
     })
 

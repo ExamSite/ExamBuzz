@@ -1,5 +1,5 @@
 <div class="exams">
-    <div class="exam1" *ngFor="let p of createdExams">
+    <div class="exam1" *ngFor="let p of createdExams" (click)="fun(p)">
         <p>{{p.examId}}</p>
         <P>{{p.examName}}</P>
     </div>
