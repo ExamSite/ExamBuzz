@@ -12,23 +12,28 @@ import { AuthGuard } from './auth.guard';
 import { ModalClassComponent } from './modal-class/modal-class.component';
 import { CreateexamComponent } from './createexam/createexam.component';
 import { JoinexamComponent } from './joinexam/joinexam.component';
+import { CreationPageComponent } from './creation-page/creation-page.component';
+import { CreatedExamsComponent } from './created-exams/created-exams.component';
 
 
 const routes: Routes = [
     {path:"",component:WebsiteComponent,children:[
-    {path:'',component:HomeComponent},
-    {path:'about',component:AboutComponent},
-    {path:'contacts',component:ContactsComponent},
-    {path:'login',component:LoginComponent},
-    {path: 'signup', component:SignupComponent }
+      
+                                {path:'',component:HomeComponent},
+                                {path:'about',component:AboutComponent},
+                                {path:'contacts',component:ContactsComponent},
+                                {path:'login',component:LoginComponent},
+                                {path: 'signup', component:SignupComponent }
 
 
   ]},
   {path:"dashboard",canActivate:[AuthGuard],component:DashboardComponent,children:[
     {path:"",component:ProfileComponent,children:[
+      {path:"",component:CreatedExamsComponent},
       {path:"modal",component:ModalClassComponent},
       {path:"create",component:CreateexamComponent},
-      {path:"join",component:JoinexamComponent}
+      {path:"join",component:JoinexamComponent},
+      {path:"creationPage",component:CreationPageComponent}
     
     ]},
     // {path:"modal",component:ModalClassComponent},

@@ -1,0 +1,16 @@
+<div class="creation-page">
+    <div class="header">
+        Create your Paper
+    </div>
+    <form class="question-body" #f="ngForm">
+        <input #quesRef="ngModel" [(ngModel)]="quesProp" name="question" type="text">
+        <input #opt1Ref="ngModel" [(ngModel)]="opt1Prop" name="opt1" type="text">
+        <input #opt2Ref="ngModel" [(ngModel)]="opt2Prop" name="opt2" type="text">
+        <input #opt3Ref="ngModel" [(ngModel)]="opt3Prop" name="opt3" type="text">
+        <input #opt4Ref="ngModel" [(ngModel)]="opt4Prop" name="opt4" type="text">
+        <input #ansRef="ngModel" [(ngModel)]="ansProp" name="question" type="text">
+        <button (click)="submit()">next</button>
+        <button type="submit" (click)="submitToDb()">submit</button>
+    </form>
+    
+</div>

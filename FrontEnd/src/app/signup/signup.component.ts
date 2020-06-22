@@ -20,7 +20,7 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
   SignUp() {
-    this.ds.SignUp({ Name: this.NameProp, USername: this.UserProp, Mobile: this.MobProp, Email: this.EmailProp, Password: this.PassProp })
+    this.ds.SignUp({ Name: this.NameProp, Username: this.UserProp, Mobile: this.MobProp, Email: this.EmailProp, Password: this.PassProp })
       .subscribe((response) => {
         if (response.status == "ok") {
           alert('registration successfull please login to use');

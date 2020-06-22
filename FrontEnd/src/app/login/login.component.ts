@@ -22,8 +22,10 @@ export class LoginComponent implements OnInit {
     this.ds.LogIn({ Email: this.EmailProp, Password: this.PassProp })
       .subscribe((response) => {
         if (response.status == "ok") {
-          localStorage.setItem('name', response.data[0].name);
-          localStorage.setItem('email', response.data[0].email);
+          localStorage.setItem('name', response.data[0].Name);
+          localStorage.setItem('email', response.data[0].Email);
+          alert(response.data[0].Email)
+          console.log(response.data)
           this.router.navigate(['/dashboard']);
         }
         else {
