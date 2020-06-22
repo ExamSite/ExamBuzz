@@ -131,19 +131,16 @@ app.post('/my-created-papers',bodyParser.json(),(req,res)=>{
 app.post('/submit-paper',bodyParser.json(),(req,res)=>{
     var collection = connection.db(dbName).collection('Exams');
     // console.log(localStorage.getItem('examId'))
-    collection.find({"examId":req.body.examId}).toArray((err,docs)=>{
-        if(!err && docs.length>0){
+    collection.update({"examId":req.body.examId}, {$set:{questions:req.body.paper}}, (err,result)=>{
+        if(!err ){
             // docs.push(req.body.paper)
             // console.log(docs)
-            res.send({status:"ok",data:"got it "})
-            docs.forEach((p)=>{
-                if(p.examId==req.body.examId){
-                    p.paper=req.body.paper
-                    collection.find({examId:req.body.examId}).update(docs)
-                }
+            res.send({status:"ok",data:"got it "});
+           
             
-            })
-            
+        }
+        else{
+            res.send({status:"failed",data:"could not insert questions"});
         }
     })
 
