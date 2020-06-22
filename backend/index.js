@@ -11,8 +11,8 @@ const app = express();
 app.use(cors());
 
 // var client = new MongoClient( 'mongodb://localhost:27017/mypro', {useNewUrlParser:true});
-// var client = new MongoClient('mongodb+srv://root:root@cluster.i5ume.gcp.mongodb.net/dbName?retryWrites=true&w=majority', { useNewUrlParser: true });
-var client = new MongoClient('mongodb+srv://admin:admin@cluster0-c4rib.mongodb.net/dbName?retryWrites=true&w=majority', { useNewUrlParser: true });
+var client = new MongoClient('mongodb+srv://root:root@cluster.i5ume.gcp.mongodb.net/dbName?retryWrites=true&w=majority', { useNewUrlParser: true });
+//var client = new MongoClient('mongodb+srv://admin:admin@cluster0-c4rib.mongodb.net/dbName?retryWrites=true&w=majority', { useNewUrlParser: true });
 
 var connection;
 client.connect((err, con) => {
