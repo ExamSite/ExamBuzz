@@ -23,6 +23,7 @@ export class DataService {
   FetchPaperData(d):any{
     return this.http.post('http://localhost:5000/my-created-papers',d)
   }
-
- 
+  submitPaper(d):any{
+    return this.http.post('http://localhost:5000/submit-paper',d)
+  }
 }

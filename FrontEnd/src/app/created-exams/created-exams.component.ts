@@ -36,5 +36,9 @@ export class CreatedExamsComponent implements OnInit {
     })
   }
 
+  // fun(d){
+  //   alert()
+  // }
+
 
 }
