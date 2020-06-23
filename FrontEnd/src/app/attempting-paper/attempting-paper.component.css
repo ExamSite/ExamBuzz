@@ -8,6 +8,7 @@
     /*flex-wrap: wrap;*/
     padding: 20px;
     box-sizing: border-box;
+    background-color: lightcyan;
 }
 .Ques{
     width: 90%;
@@ -15,6 +16,7 @@
     margin-top: 10px;
     padding: 10px;
     box-sizing: border-box;
+    background-color: turquoise;
 }
 .Ans{
     width: 80%;
