@@ -1,13 +1,18 @@
 <div [class]="dynamicbg" id="modal-bg">
+
+
+
+
     <form class="modal" #f="ngForm">
         <div class="inputbox">
-            <input #examNameRef="ngModel" [(ngModel)]="examNameProp" name="examNameProp" type="text" name="examname" placeholder="Exam Name">
+            <!-- <label for="examNameProp" style="color:white">Question</label> -->
+            <input #examNameRef="ngModel" [(ngModel)]="examNameProp" name="examNameProp" type="text" name="examname" placeholder="Exam Name" required>
         </div>
         <div class="inputbox">
-            <input #examIdRef="ngModel" [(ngModel)]="examIdProp" name="examIdProp" type="text" placeholder="exam id">
+            <input #examIdRef="ngModel" [(ngModel)]="examIdProp" name="examIdProp" type="text" placeholder="exam id" required>
         </div>
         <div class="inputbox">
-            <input #examPassRef="ngModel" [(ngModel)]="examPassProp" name="examPassRef" type="text" placeholder="exam password">
+            <input #examPassRef="ngModel" [(ngModel)]="examPassProp" name="examPassRef" type="text" placeholder="exam password" required>
         </div>
         <span class="close" (click)="changeClass()">X</span>
         <div class="inputbox">

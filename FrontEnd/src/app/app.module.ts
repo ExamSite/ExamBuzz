@@ -26,7 +26,8 @@ import { CreationPageComponent } from './creation-page/creation-page.component';
 import { QuestionCardComponent } from './question-card/question-card.component';
 import { CreatedExamsComponent } from './created-exams/created-exams.component';
 import { UpdateExamComponent } from './update-exam/update-exam.component';
-import { AttemptingPaperComponent } from './attempting-paper/attempting-paper.component'
+import { AttemptingPaperComponent } from './attempting-paper/attempting-paper.component';
+import { ProfileSidebarComponent } from './profile-sidebar/profile-sidebar.component'
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { AttemptingPaperComponent } from './attempting-paper/attempting-paper.co
     QuestionCardComponent,
     CreatedExamsComponent,
     UpdateExamComponent,
-    AttemptingPaperComponent
+    AttemptingPaperComponent,
+    ProfileSidebarComponent
   ],
   imports: [
     BrowserModule,

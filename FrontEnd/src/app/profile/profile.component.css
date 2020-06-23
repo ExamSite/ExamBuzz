@@ -1,0 +1,21 @@
+*{
+    color:black;
+}
+.main{
+    display:flex;
+    /* flex-direction: row; */
+}
+.sidebar{
+    flex:20%;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+.sidebar-hidden{
+    flex:0;
+    width:0;
+    overflow: hidden;
+    transition: 1s;
+}
+.router{
+    flex:80%;
+    background-color: white;
+}
