@@ -19,6 +19,10 @@ export class CreationPageComponent implements OnInit {
   ngOnInit(): void {
   }
   submit(){
+    if(this.quesProp==null && this.opt1Prop==null && this.opt2Prop==null && this.opt3Prop==null && this.opt4Prop==null && this.ansProp==null){
+      alert("put values")
+      return
+    }
     this.questionsObj.push(
       {
         question:this.quesProp,
@@ -30,18 +34,23 @@ export class CreationPageComponent implements OnInit {
       }
     )
     console.log(this.questionsObj)
-    this.quesProp=""
-    this.opt1Prop=""
-    this.opt2Prop=""
-    this.opt3Prop=""
-    this.opt4Prop=""
-    this.ansProp=""
+    this.quesProp=null
+    this.opt1Prop=null
+    this.opt2Prop=null
+    this.opt3Prop=null
+    this.opt4Prop=null
+    this.ansProp=null
 
 
   }
   submitToDb(){
+    if(this.questionsObj.length==0){
+      alert("pls put question and answers")
+      return
+    }
     this.ds.submitPaper({paper:this.questionsObj,examId:localStorage.getItem('examId')})
     .subscribe((response)=>{
+      
       if(response.status=="ok"){
         alert("response status ok")
       }

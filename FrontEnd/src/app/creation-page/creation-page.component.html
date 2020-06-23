@@ -3,14 +3,24 @@
         Create your Paper
     </div>
     <form class="question-body" #f="ngForm">
-        <input #quesRef="ngModel" [(ngModel)]="quesProp" name="question" type="text">
-        <input #opt1Ref="ngModel" [(ngModel)]="opt1Prop" name="opt1" type="text">
-        <input #opt2Ref="ngModel" [(ngModel)]="opt2Prop" name="opt2" type="text">
-        <input #opt3Ref="ngModel" [(ngModel)]="opt3Prop" name="opt3" type="text">
-        <input #opt4Ref="ngModel" [(ngModel)]="opt4Prop" name="opt4" type="text">
-        <input #ansRef="ngModel" [(ngModel)]="ansProp" name="question" type="text">
-        <button (click)="submit()">next</button>
-        <button type="submit" (click)="submitToDb()">submit</button>
+        <div class="buttons buttonsup">
+            <button (click)="prev()">prev</button>
+            <button>{{questionsObj.length + 1}}</button>
+            <button (click)="submit()">next</button>
+            
+            
+        </div>
+        <input #quesRef="ngModel" [(ngModel)]="quesProp" name="question" type="text" placeholder="Enter Your Question Here" required>
+        <input #opt1Ref="ngModel" [(ngModel)]="opt1Prop" name="opt1" type="text" placeholder="Option 1">
+        <input #opt2Ref="ngModel" [(ngModel)]="opt2Prop" name="opt2" type="text" placeholder="Option 2">
+        <input #opt3Ref="ngModel" [(ngModel)]="opt3Prop" name="opt3" type="text" placeholder="Option 3">
+        <input #opt4Ref="ngModel" [(ngModel)]="opt4Prop" name="opt4" type="text" placeholder="Option 4">
+        <input #ansRef="ngModel" [(ngModel)]="ansProp" name="question" type="text" placeholder="Correct answer 1 or 2 or 3 or 4">
+        <div class="buttons">
+            <!-- <button (click)="submit()">next</button> -->
+            <button type="submit" (click)="submitToDb()">submit</button>
+        </div>
+        
     </form>
     
 </div>
