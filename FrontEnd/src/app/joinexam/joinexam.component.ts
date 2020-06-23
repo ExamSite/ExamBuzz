@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from '../data.service';
+import { typeSourceSpan } from '@angular/compiler';
 
 @Component({
   selector: 'app-joinexam',
@@ -32,8 +33,11 @@ export class JoinexamComponent implements OnInit {
       this.ds.joinPaper({examId:this.examIdProp,password:this.examPassProp})
       .subscribe((response)=>{
         if(response.status=="ok"){
-          alert("response status ok and " + JSON.stringify(response.data))
-          this.router.navigate(['dashboard/attempting-paper'])
+          alert("response status ok and ")
+          console.log(response.data)
+          console.log(typeof(response.data))
+          this.router.navigate(['dashboard/attempting-paper'],{queryParams:{questions:JSON.stringify(response.data)}})
+          console.log(JSON.stringify(response.data))
         }
         else{
           alert("enter right examid or password")

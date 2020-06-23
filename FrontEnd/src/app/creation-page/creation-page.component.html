@@ -1,11 +1,28 @@
-<div class="creation-page">
+<form class="creation-page" #f="ngForm">
     <div class="header">
-        Create your Paper
+        <div class="header-item">
+            Time
+            <input #timeRef="ngModel" [(ngModel)]="timeProp" name="date" type="time">
+        </div>
+        <div class="header-item">
+            date
+            <input #dateRef="ngModel" [(ngModel)]="dateProp" name="time" type="date">
+        </div>
+        <div class="header-item">
+            duration in minutes
+            <input #durationRef="ngModel" [(ngModel)]="durationProp" type="number">
+        </div>
+        <!-- <div class="header-item">
+            want to shuffle
+            <input #shuffleProp="ngModel" [(ngModel)]="shuffleProp" type="radio">
+
+        </div> -->
     </div>
-    <form class="question-body" #f="ngForm">
+
+    <div class="question-body" >
         <div class="buttons buttonsup">
             <button (click)="prev()">prev</button>
-            <button>{{questionsObj.length + 1}}</button>
+            <button>ques no {{questionsObj.length + 1}}</button>
             <button (click)="submit()">next</button>
             
             
@@ -21,6 +38,6 @@
             <button type="submit" (click)="submitToDb()">submit</button>
         </div>
         
-    </form>
+    </div>
     
-</div>
+</form>

@@ -131,7 +131,7 @@ app.post('/my-created-papers',bodyParser.json(),(req,res)=>{
 app.post('/submit-paper',bodyParser.json(),(req,res)=>{
     var collection = connection.db(dbName).collection('Exams');
     // console.log(localStorage.getItem('examId'))
-    collection.update({"examId":req.body.examId}, {$set:{questions:req.body.paper}}, (err,result)=>{
+    collection.update({"examId":req.body.examId}, {$set:{questions:req.body.paper,time:req.body.time,date:req.body.date,duration:req.body.duration}}, (err,result)=>{
         if(!err ){
             // docs.push(req.body.paper)
             // console.log(docs)

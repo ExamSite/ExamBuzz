@@ -13,6 +13,12 @@ export class CreationPageComponent implements OnInit {
   opt3Prop;
   opt4Prop;
   ansProp;
+
+
+  dateProp;
+  timeProp;
+  durationProp;
+  // shuffleProp;
   questionsObj=[];
   constructor(private ds:DataService) { }
 
@@ -20,6 +26,7 @@ export class CreationPageComponent implements OnInit {
   }
   submit(){
     if(this.quesProp==null && this.opt1Prop==null && this.opt2Prop==null && this.opt3Prop==null && this.opt4Prop==null && this.ansProp==null){
+      alert(this.dateProp)
       alert("put values")
       return
     }
@@ -43,16 +50,21 @@ export class CreationPageComponent implements OnInit {
 
 
   }
+  prev(){
+    alert("hello prev")
+  }
+
   submitToDb(){
-    if(this.questionsObj.length==0){
-      alert("pls put question and answers")
-      return
-    }
-    this.ds.submitPaper({paper:this.questionsObj,examId:localStorage.getItem('examId')})
+    // if(this.questionsObj.length==0 || this.dateProp==undefined || this.timeProp==undefined || this.durationProp==undefined){
+    //   alert("pls put question and answers")
+    //   return
+    // }
+    this.ds.submitPaper({paper:this.questionsObj,examId:localStorage.getItem('examId'),date:this.dateProp,time:this.timeProp,duration:this.durationProp})
     .subscribe((response)=>{
       
       if(response.status=="ok"){
         alert("response status ok")
+        alert(this.dateProp)
       }
       else{
         alert("response status not ok")
