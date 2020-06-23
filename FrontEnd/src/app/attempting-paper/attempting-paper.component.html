@@ -1,11 +1,16 @@
-<div class="AllQues" *ngFor="let que of questions">
-    <div class="Ques">
-        <h3>Question: {{que.question}}</h3>
-        <div class="Ans">
-            <input type="radio" name="">{{que.opt1}}<br>
-            <input type="radio" name="">{{que.opt2}}<br>
-            <input type="radio" name="">{{que.opt3}}<br>
-            <input type="radio" name="">{{que.opt4}}<br>
+<div class="All">
+    <div class="AllQues" *ngFor="let que of questions">
+        <div class="Ques">
+            <h3>Question: {{que.question}}</h3>
+            <div class="Ans">
+                <input type="radio" name="">{{que.opt1}}<br>
+                <input type="radio" name="">{{que.opt2}}<br>
+                <input type="radio" name="">{{que.opt3}}<br>
+                <input type="radio" name="">{{que.opt4}}<br>
+            </div>
         </div>
     </div>
+    <button type="submit" class="button">
+        <h4>Submit Your Test</h4>
+    </button>
 </div>

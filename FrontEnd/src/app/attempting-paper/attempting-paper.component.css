@@ -1,14 +1,14 @@
 *{
     color: black;
 }
+.All{
+    background-color: lightcyan;
+}
 .AllQues{
     display: flex;
     justify-content: space-evenly;
-    /*align-content: space-around;*/
-    /*flex-wrap: wrap;*/
     padding: 20px;
     box-sizing: border-box;
-    background-color: lightcyan;
 }
 .Ques{
     width: 90%;
@@ -23,4 +23,11 @@
     margin-top: 5px;
     margin-left: 40px;
     padding: 10px;
+}
+.button{
+    width: 10%;
+    height: 30px;
+    background-color: teal;
+    margin-top: 10px;
+    margin-left: 6.5%;
 }
