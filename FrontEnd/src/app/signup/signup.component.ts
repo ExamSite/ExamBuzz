@@ -14,22 +14,30 @@ export class SignupComponent implements OnInit {
   MobProp;
   EmailProp;
   PassProp;
-  //RePassProp;
+  //CPassProp;
   constructor(private ds:DataService,private router:Router) { }
 
   ngOnInit(): void {
   }
-  SignUp() {
-    this.ds.SignUp({ Name: this.NameProp, Username: this.UserProp, Mobile: this.MobProp, Email: this.EmailProp, Password: this.PassProp })
-      .subscribe((response) => {
-        if (response.status == "ok") {
-          alert('registration successfull please login to use');
-          this.router.navigate(['/login']);
-        }
-        else {
-          alert("Email Already Resigtered");
-        }
-      })
-  }
 
+  /*checkpassword() {
+    var p = document.getElementById("pass").value;
+    var cp = main.cpass.value;
+    if (p != cp) {
+      alert("Your Password are mismatch")
+    }*/
+  
+  SignUp(){
+    this.ds.SignUp({ Name: this.NameProp, Username: this.UserProp, Mobile: this.MobProp, Email: this.EmailProp, Password: this.PassProp })
+    .subscribe((response) => {
+      if (response.status == "ok") {
+        alert('registration successfull please login to use');
+        this.router.navigate(['/login']);
+      }
+      else {
+        alert("Email Already Resigtered");
+      }
+    })
+  }
+  
 }

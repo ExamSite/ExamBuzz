@@ -1,3 +1,24 @@
 *{
-    color:black;
+    color: black;
+}
+.AllQues{
+    display: flex;
+    justify-content: space-evenly;
+    /*align-content: space-around;*/
+    /*flex-wrap: wrap;*/
+    padding: 20px;
+    box-sizing: border-box;
+}
+.Ques{
+    width: 90%;
+    box-shadow: 2px 2px 2px rgb(0, 0, 0);
+    margin-top: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.Ans{
+    width: 80%;
+    margin-top: 5px;
+    margin-left: 40px;
+    padding: 10px;
 }
