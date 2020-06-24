@@ -3,11 +3,12 @@
         <div class="Ques">
             <h3>Question: {{que.question}}</h3>
             <div class="Ans">
-                <p><input type="radio" name="a + {{i}}" value="1" id="opt1+{{i}}"><label for="opt1+{{i}}">{{que.opt1}}</label></p>
-                <p><input type="radio" name="a + {{i}}" value="2" id="opt2+{{i}}"><label for="opt2+{{i}}">{{que.opt2}}}</label></p>
-                <p><input type="radio" name="a + {{i}}" value="3" id="opt3+{{i}}"><label for="opt3+{{i}}">{{que.opt3}}</label></p>
-                <p><input type="radio" name="a + {{i}}" value="4" id="opt4+{{i}}"><label for="opt4+{{i}}">{{que.opt4}}</label></p>
+                <p><input [(ngModel)]="ans[i]" type="radio" name="a + {{i}}" value="1" id="opt1+{{i}}"><label for="opt1+{{i}}">{{que.opt1}}</label></p>
+                <p><input [(ngModel)]="ans[i]" type="radio" name="a + {{i}}" value="2" id="opt2+{{i}}"><label for="opt2+{{i}}">{{que.opt2}}}</label></p>
+                <p><input [(ngModel)]="ans[i]" type="radio" name="a + {{i}}" value="3" id="opt3+{{i}}"><label for="opt3+{{i}}">{{que.opt3}}</label></p>
+                <p><input [(ngModel)]="ans[i]" type="radio" name="a + {{i}}" value="4" id="opt4+{{i}}"><label for="opt4+{{i}}">{{que.opt4}}</label></p>
                 <!-- console.log("a" + {{i+1}}) -->
+                {{ans[i] }}
             </div>
         </div>
     </div>

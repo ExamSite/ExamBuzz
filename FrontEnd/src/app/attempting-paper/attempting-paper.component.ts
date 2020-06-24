@@ -10,6 +10,7 @@ export class AttemptingPaperComponent implements OnInit {
 
   constructor(private route:ActivatedRoute) { }
   questions;
+  ans;
 
   opt1Prop;
   opt2Prop;
@@ -28,6 +29,8 @@ export class AttemptingPaperComponent implements OnInit {
 
 // converting this.questions into object 
       this.questions=JSON.parse(this.questions)
+      this.ans = new Array(this.questions.length);
+      alert("ans lenth is" + this.ans.length);
       // console.log("finding fanny "+typeof(this.questions))
 
 
