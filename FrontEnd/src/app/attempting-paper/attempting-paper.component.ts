@@ -10,6 +10,13 @@ export class AttemptingPaperComponent implements OnInit {
 
   constructor(private route:ActivatedRoute) { }
   questions;
+
+  opt1Prop;
+  opt2Prop;
+  opt3Prop;
+  opt4Prop;
+
+
   ngOnInit(): void {
     this.route.queryParamMap.subscribe((d)=>{
       this.questions = d.get('questions')
@@ -30,6 +37,10 @@ export class AttemptingPaperComponent implements OnInit {
 
 
     })
+  }
+
+  submit(){
+    this.opt1Prop;
   }
 
 }

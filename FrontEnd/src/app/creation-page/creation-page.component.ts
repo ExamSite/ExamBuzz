@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { ObjectUnsubscribedError } from 'rxjs';
 
 @Component({
   selector: 'app-creation-page',
@@ -38,6 +39,7 @@ export class CreationPageComponent implements OnInit {
         opt3:this.opt3Prop,
         opt4:this.opt4Prop,
         ans:this.ansProp,
+        
       }
     )
     console.log(this.questionsObj)
