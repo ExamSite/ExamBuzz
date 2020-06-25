@@ -7,12 +7,11 @@
                 <p><input [(ngModel)]="ans[i]" type="radio" name="a + {{i}}" value="2" id="opt2+{{i}}"><label for="opt2+{{i}}">{{que.opt2}}</label></p>
                 <p><input [(ngModel)]="ans[i]" type="radio" name="a + {{i}}" value="3" id="opt3+{{i}}"><label for="opt3+{{i}}">{{que.opt3}}</label></p>
                 <p><input [(ngModel)]="ans[i]" type="radio" name="a + {{i}}" value="4" id="opt4+{{i}}"><label for="opt4+{{i}}">{{que.opt4}}</label></p>
-                <!-- console.log("a" + {{i+1}})
-                {{ans[i] }}-->
+                <!-- console.log("a" + {{i+1}}) -->
             </div>
         </div>
     </div>
-    <button type="submit" class="button">
+    <button type="submit" class="button" (click)="submit()">
         <h4>Submit Your Test</h4>
     </button>
 </form>

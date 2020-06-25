@@ -32,4 +32,7 @@ export class DataService {
   joinPaper(d):any{
     return this.http.post('http://localhost:5000/join-paper',d)
   }
+  SubmitAns(d):any{
+    return this.http.post('http://localhost:5000/submit-ans',d)
+  }
 }
