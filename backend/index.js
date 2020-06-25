@@ -180,5 +180,25 @@ app.post('/join-paper',bodyParser.json(),(req,res)=>{
 
 })
 
+//submitting answers
+// app.post('submit-ans',bodyParser.json(),(req,res)=>{
+//     var collection = connection.db(dbName).collection('Exams');
+
+//     collection.update({"examId":req.body.examId},{$set:{students:{"name":req.body.name,"emailId":req.body.email,"submittedAns":req.body.ans}}}).toArray((err,docs)=>{
+
+//     })
+
+app.post('/submit-ans',bodyParser.json(),(req,res)=>{
+    var collection = connection.db(dbName).collection("Exams");
+    collection.update({"examId":req.body.examId},{$push:{students:{name:req.body.name,"email":req.body.email,"submittedAns":req.body.submittedAns,"marks":req.body.marks}}},(err,result)=>{
+        if(!err){
+            res.send({status:"ok",data:"got it"})
+            console.log(req.body.name + " " + req.body.email + " " + req.body.examId + " " + req.body.ans + req.body.marks)
+        }
+        else{
+            res.send({status:"did not get it ",data:"lol"})
+        }
+    })
+})
 
 app.listen(5000, () => { console.log("server is listining on port 5000") });

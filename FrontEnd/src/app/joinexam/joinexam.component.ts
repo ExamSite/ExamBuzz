@@ -36,7 +36,7 @@ export class JoinexamComponent implements OnInit {
           alert("response status ok and ")
           console.log(response.data)
           console.log(typeof(response.data))
-          this.router.navigate(['dashboard/attempting-paper'],{queryParams:{questions:JSON.stringify(response.data)}})
+          this.router.navigate(['dashboard/attempting-paper'],{queryParams:{questions:JSON.stringify(response.data),examId:`${this.examIdProp}`}})
           console.log(JSON.stringify(response.data))
         }
         else{
