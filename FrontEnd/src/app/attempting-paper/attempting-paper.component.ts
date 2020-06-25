@@ -30,7 +30,7 @@ export class AttemptingPaperComponent implements OnInit {
 // converting this.questions into object 
       this.questions=JSON.parse(this.questions)
       this.ans = new Array(this.questions.length);
-      alert("ans lenth is" + this.ans.length);
+      //alert("ans lenth is" + this.ans.length);
       // console.log("finding fanny "+typeof(this.questions))
 
 

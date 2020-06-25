@@ -19,15 +19,12 @@ import { AttemptingPaperComponent } from './attempting-paper/attempting-paper.co
 
 
 const routes: Routes = [
-    {path:"",component:WebsiteComponent,children:[
-      
-                                {path:'',component:HomeComponent},
-                                {path:'about',component:AboutComponent},
-                                {path:'contacts',component:ContactsComponent},
-                                {path:'login',component:LoginComponent},
-                                {path: 'signup', component:SignupComponent }
-
-
+  {path:"",component:WebsiteComponent,children:[ 
+    {path:'',component:HomeComponent},
+    {path:'about',component:AboutComponent},
+    {path:'contacts',component:ContactsComponent},
+    {path:'login',component:LoginComponent},
+    {path: 'signup', component:SignupComponent }
   ]},
   {path:"dashboard",canActivate:[AuthGuard],component:DashboardComponent,children:[
     {path:"",component:ProfileComponent,children:[
@@ -37,19 +34,10 @@ const routes: Routes = [
       {path:"join",component:JoinexamComponent},
       {path:"creationPage",component:CreationPageComponent},
       {path:"updateexam",component:UpdateExamComponent},
-      {path:"attempting-paper",component:AttemptingPaperComponent}
-    
+      {path:"attempting-paper",component:AttemptingPaperComponent}   
     ]},
     // {path:"modal",component:ModalClassComponent},
-
-    
-  
-  ]}
-  
-  
-  
-  
-  
+  ]}  
 ];
 
 @NgModule({

@@ -30,12 +30,18 @@ export class SignupComponent implements OnInit {
   SignUp(){
     this.ds.SignUp({ Name: this.NameProp, Username: this.UserProp, Mobile: this.MobProp, Email: this.EmailProp, Password: this.PassProp })
     .subscribe((response) => {
-      if (response.status == "ok") {
-        alert('registration successfull please login to use');
-        this.router.navigate(['/login']);
+      if (this.NameProp == null || this.UserProp == null || this.MobProp == null || this.EmailProp == null || this.PassProp == null){
+        alert('Fill your details');
+        this.router.navigate(['signup'])
       }
-      else {
-        alert("Email Already Resigtered");
+      else{
+        if (response.status == "ok") {
+          alert('registration successfull please login to use');
+          this.router.navigate(['/login']);
+        }
+        else {
+          alert("Email Already Resigtered");
+        }
       }
     })
   }
