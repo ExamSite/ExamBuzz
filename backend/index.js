@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const { response } = require('express');
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectId;
 
@@ -201,4 +202,49 @@ app.post('/submit-ans',bodyParser.json(),(req,res)=>{
     })
 })
 
+//see and update profile
+
+app.post('/see-update-profile',bodyParser.json(),(req,res)=>{
+    var collection = connection.db(dbName).collection("Users")
+    collection.find({Email:req.body.email}).toArray((err,docs)=>{
+        if(!err && docs.length>0){
+            res.send({status:"ok",data:docs[0]})
+            console.log("docs are " + JSON.stringify(docs[0]))
+        }
+    })
+
+})
+
+app.post('/update-profile',bodyParser.json(),(req,res)=>{
+    var collection = connection.db(dbName).collection("Users")
+    collection.update({Email:req.body.email},{$set:{Name:req.body.name,Username:req.body.username,Mobile:req.body.mobile,Email:req.body.emailUp,Password:req.body.password}},(err,result)=>{
+        if(!err){
+            res.send({status:"ok"})
+        }
+    })
+
+})
+
+app.post('/fetch-paper-details',bodyParser.json(),(req,res)=>{
+    var collection = connection.db(dbName).collection("Exams")
+    collection.find({"examId":req.body.examId}).toArray((err,docs)=>{
+        if(!err && docs.length>0){
+            res.send({status:"ok",data:docs[0]})
+            console.log("from fetch paper details"+JSON.stringify(docs))
+        }
+        else{
+            res.send({status:"not ok"})
+            console.log("nhi mil rha bhai")
+        }
+    })
+})
+
+// app.post('/fetch-all-students',bodyParser.json(),(req,res)=>{
+//     var collection = connection.db(dbName).collection("Exams");
+//     collection.find({examId:req.body.examId}).toArray((err,docs)=>{
+//         if(!err && docs.length>0){
+//             res.send({status:"ok",data:docs[0]})
+//         }
+//     })
+// })
 app.listen(5000, () => { console.log("server is listining on port 5000") });
