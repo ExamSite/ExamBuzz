@@ -35,4 +35,18 @@ export class DataService {
   SubmitAns(d):any{
     return this.http.post('http://localhost:5000/submit-ans',d)
   }
+  SeeUpdateProfile(d):any{
+    return this.http.post('http://localhost:5000/see-update-profile',d)
+  }
+  UpdateProfile(d):any{
+    return this.http.post('http://localhost:5000/update-profile',d)
+  }
+  FetchPaperDetails(d):any{
+    return this.http.post('http://localhost:5000/fetch-paper-details',d)
+  }
+  // FetchAllStudents(d):any{
+  //   return this.http.post('http://localhost:5000/fetch-all-students',d)
+  // }
 }
+   
+

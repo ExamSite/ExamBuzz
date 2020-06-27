@@ -1,3 +1,56 @@
 *{
     color:black;
 }
+/* .SignUpForm{
+  
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.important{
+    width:100%;
+
+}
+.important input{
+    width:60%;
+    
+} */
+*{
+    color: black;
+}
+.All{
+    background-color: lightcyan;
+}
+.AllQues{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.Ques{
+    width: 90%;
+    box-shadow: 2px 2px 2px rgb(0, 0, 0);
+    margin-top: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: turquoise;
+}
+.Ans{
+    width: 80%;
+    margin-top: 5px;
+    margin-left: 40px;
+    padding: 10px;
+}
+.button{
+    width: 10%;
+    height: 30px;
+    background-color: teal;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 6.5%;
+}
+
+input,label{
+    cursor: pointer;
+}

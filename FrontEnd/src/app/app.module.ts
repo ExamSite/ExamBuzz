@@ -27,7 +27,9 @@ import { QuestionCardComponent } from './question-card/question-card.component';
 import { CreatedExamsComponent } from './created-exams/created-exams.component';
 import { UpdateExamComponent } from './update-exam/update-exam.component';
 import { AttemptingPaperComponent } from './attempting-paper/attempting-paper.component';
-import { ProfileSidebarComponent } from './profile-sidebar/profile-sidebar.component'
+import { ProfileSidebarComponent } from './profile-sidebar/profile-sidebar.component';
+import { SeeUpdateProfileComponent } from './see-update-profile/see-update-profile.component';
+import { JoinedPapersComponent } from './joined-papers/joined-papers.component'
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { ProfileSidebarComponent } from './profile-sidebar/profile-sidebar.compo
     CreatedExamsComponent,
     UpdateExamComponent,
     AttemptingPaperComponent,
-    ProfileSidebarComponent
+    ProfileSidebarComponent,
+    SeeUpdateProfileComponent,
+    JoinedPapersComponent
   ],
   imports: [
     BrowserModule,

@@ -9,23 +9,57 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class UpdateExamComponent implements OnInit {
   examId;
+  questions;
+  students;
+
+
+  queProp;
+  opt1Prop;
+  opt2Prop;
+  opt3Prop;
+  opt4Prop;
+  ansProp;
+
+  helperArray;
+
+
   constructor(private ds:DataService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.queryParamMap.subscribe((d)=>{
       this.examId=d.get('examId');
-      alert(" asdf asdf "+ this.examId)
+      // alert(" asdf asdf "+ this.examId)
     })
-    this.ds.showPaperDetail({examId:this.examId})
+    this.ds.FetchPaperDetails({examId:this.examId})
     .subscribe((response)=>{
       if(response.status=="ok"){
         //do what ever u want buddy
         console.log("ok")
+        this.questions = response.data.questions;
+        this.students = response.data.students;
+        console.log("questions are" +JSON.stringify(this.questions))
+
         console.log("this is response data " + response.data)
-        alert("response ok")
+        // alert("response ok")
+
+        this.helperArray = new Array(this.questions.length)
+        // alert(this.helperArray.length)
+        for(let i =0;i<this.helperArray.length;i++){
+          this.helperArray[i]=i;
+        }
+        // alert(this.helperArray)
+      }
+      else{
+        alert("not ok")
       }
 
     })
+  }
+  update(){
+
+  }
+  allstudents(){
+  
   }
 
 }
