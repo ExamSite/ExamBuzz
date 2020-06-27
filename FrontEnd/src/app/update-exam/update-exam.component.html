@@ -1,7 +1,15 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
 
 <div class="main">
 <form class="SignUpForm" #f="ngForm">
@@ -46,6 +54,7 @@
 
 
 <form class="All" #f="ngForm">
+    <h2>Your Created Question Paper</h2>
     <div class="AllQues" *ngFor="let que of questions;let i = index">
         <div class="Ques">
             <h3>Question: {{que.question}}</h3>
@@ -59,14 +68,31 @@
             </div>
         </div>
     </div>
-    <button type="submit" class="button" (click)="update()">
+    <!-- <button type="submit" class="button" (click)="update()">
         <h4>update</h4>
-    </button>
+    </button> -->
 </form>
-<div class="allstudetns" *ngFor="let std of students">
-    <p>Name :{{std.name}}</p>
+<div class="container" >
+    <h2>Students who appeared in the exam</h2>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Marks</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let std of students">
+            <tr>
+                <td>{{std.name}}</td>
+                <td>{{std.email}}</td>
+                <td>{{std.marks}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- <p>Name :{{std.name}}</p>
     <p>Marks : {{std.marks}}</p>
-    <p>Submitted ans:{{std.submittedAns}}</p>
+    <p>Submitted ans:{{std.submittedAns}}</p> -->
 </div>
 
 

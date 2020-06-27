@@ -20,7 +20,11 @@
     color: black;
 }
 .All{
-    background-color: lightcyan;
+    background-color: white;
+}
+.main{
+    border-left:1px solid black;
+    border-collapse: collapse;
 }
 .AllQues{
     display: flex;
@@ -34,7 +38,8 @@
     margin-top: 10px;
     padding: 10px;
     box-sizing: border-box;
-    background-color: turquoise;
+    /* background-color: turquoise; */
+    background-color: rgb(240,240,240);
 }
 .Ans{
     width: 80%;
