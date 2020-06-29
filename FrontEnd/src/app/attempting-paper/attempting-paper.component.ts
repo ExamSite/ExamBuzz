@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
 
 @Component({
@@ -9,18 +9,39 @@ import { DataService } from '../data.service';
 })
 export class AttemptingPaperComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute,private ds:DataService) { }
+  constructor(private route:ActivatedRoute,private ds:DataService,private router:Router) { }
   questions;
+  questions2;
   ans;
   examId;
+
+  //for date
+  date;
+  time;
+  duration;
+  temp;
+  temp2;
+  temp3
+
+  examDate;
+  todaysDateObject;
+  // todaysDate;
+
+
+
+  docsForFetchDate; 
+
+
+  
   realAns;
   marks=0;
 
   ngOnInit(): void {
     this.route.queryParamMap.subscribe((d)=>{
-      this.questions = d.get('questions')
+      this.questions2 = d.get('questions')
       this.examId = d.get('examId')
-      alert("exam id get " + this.examId)
+      // alert("exam id get " + this.examId)
+
       console.log("activated questions") 
       // console.log(this.questions)
       // console.log("finding fanny "+typeof(this.questions))
@@ -28,19 +49,83 @@ export class AttemptingPaperComponent implements OnInit {
 
 
 // converting this.questions into object 
-      this.questions=JSON.parse(this.questions)
-      this.ans = new Array(this.questions.length);
-      // alert(this.ans[0])
-      //alert("ans lenth is" + this.ans.length);
-      // console.log("finding fanny "+typeof(this.questions))
-
-
-
-      // this.questions.forEach((q)=>{console.log(q.question)})
-      // console.log(typeof(JSON.parse(this.questions)))
+      
+      
 
 
     })
+
+  //new ds starts here ///////////////////////////////////////////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  this.ds.dateTimeDurationFetch({examId:this.examId})
+  .subscribe((response)=>{
+    this.docsForFetchDate = response.data
+    console.log(this.docsForFetchDate)
+   
+    if(response.status=="ok"){
+     
+      // alert("response time"+ this.docsForFetchDate.time + " " + this.docsForFetchDate.date)
+
+
+      
+      
+      this.todaysDateObject = new Date()
+      if(this.todaysDateObject.getMonth()+1<10){
+        this.temp = "0" + (this.todaysDateObject.getMonth()+1)
+        
+      }
+
+
+
+      this.date = this.todaysDateObject.getFullYear() + '-' + this.temp +"-"+this.todaysDateObject.getDate()
+      this.time = ((this.todaysDateObject.getHours()>=10)?(this.todaysDateObject.getHours()):("0"+this.todaysDateObject.getHours())) + ":" + ((this.todaysDateObject.getMinutes()>=10)?(this.todaysDateObject.getMinutes()):("0"+this.todaysDateObject.getMinutes()))
+   
+
+      if(this.date == this.docsForFetchDate.date){
+        this.temp2 = this.docsForFetchDate.time.split(":")
+        this.temp3 = this.time.split(":")
+        // alert(this.temp2[0] + " hello " + this.temp3[0])
+        if(this.temp2[0]<this.temp3[0]){
+          // alert("chota hai")
+          this.questions = this.questions2;
+          this.questions=JSON.parse(this.questions)
+          this.ans = new Array(this.questions.length);
+
+        }
+        else if(this.temp2[0]==this.temp3[0]){
+          if(this.temp2[1]<=this.temp3[1]){
+            // alert("sachi me chota hai")
+            this.questions = this.questions2;
+          this.questions=JSON.parse(this.questions)
+          this.ans = new Array(this.questions.length);
+          }
+          else{
+            console.log("abhi time nhi hua hai")
+            alert("be on time on test")
+            this.router.navigate(['/dashboard'])
+          }
+        }
+        else{
+          alert("be on time on test")
+          this.router.navigate(['/dashboard'])
+        }
+        
+      }
+      else{
+        alert("be on time on test")
+            this.router.navigate(['/dashboard'])
+      }
+
+
+
+
+      
+    }
+    else{
+      alert("date time not ok")
+    }
+  })
+  //new ds ends here /////////////////////////////////////////////////////////////////////////////////////////////////////////////
   }
 
   submit(){
@@ -61,6 +146,7 @@ export class AttemptingPaperComponent implements OnInit {
     .subscribe((response)=>{
       if(response.status=="ok"){
         alert("answers are submitted")
+        this.router.navigate(['/dashboard'])
       }
     })
   } 

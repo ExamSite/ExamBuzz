@@ -171,6 +171,7 @@ app.post('/join-paper',bodyParser.json(),(req,res)=>{
     var collection = connection.db(dbName).collection('Exams');
     collection.find({"examId":req.body.examId,"password":req.body.password}).toArray((err,docs)=>{
         if(!err && docs.length>0){
+            
             res.send({status:"ok",data:docs[0].questions})
             console.log(docs[0].questions)
         }
@@ -179,6 +180,21 @@ app.post('/join-paper',bodyParser.json(),(req,res)=>{
         }
     })
 
+})
+//fetching date time and duration from server
+app.post('/date-time-duration-fetch',bodyParser.json(),(req,res)=>{
+    var collection = connection.db(dbName).collection('Exams');
+    collection.find({"examId":req.body.examId}).toArray((err,docs)=>{
+        if(!err && docs.length>0){
+            
+            res.send({status:"ok",data:docs[0]})
+            console.log("debugginh docs of lol " + JSON.stringify(docs))
+            console.log(docs.time + " " + docs.date + " " + docs.duration + docs.examName)
+        }
+        else{
+            res.send({status:"not ok",data:"nothing found "})
+        }
+    })
 })
 
 //submitting answers
@@ -217,9 +233,17 @@ app.post('/see-update-profile',bodyParser.json(),(req,res)=>{
 
 app.post('/update-profile',bodyParser.json(),(req,res)=>{
     var collection = connection.db(dbName).collection("Users")
+    var collection2 = connection.db(dbName).collection("Exams")
+
     collection.update({Email:req.body.email},{$set:{Name:req.body.name,Username:req.body.username,Mobile:req.body.mobile,Email:req.body.emailUp,Password:req.body.password}},(err,result)=>{
         if(!err){
-            res.send({status:"ok"})
+            
+            collection2.update({email:req.body.email},{$set:{email:req.body.emailUp}},(err,result)=>{
+                if(!err){
+                    res.send({status:"ok"})
+                    console.log("this is running my baby and lets see what happens next" + req.body.emailUp)
+                }
+            })
         }
     })
 

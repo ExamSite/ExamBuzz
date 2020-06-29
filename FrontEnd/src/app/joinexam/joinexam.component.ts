@@ -27,13 +27,13 @@ export class JoinexamComponent implements OnInit {
 
     }
     join(){
-      alert(this.examIdProp)
-      alert(this.examPassProp)
+      // alert(this.examIdProp)
+      // alert(this.examPassProp)
 
       this.ds.joinPaper({examId:this.examIdProp,password:this.examPassProp})
       .subscribe((response)=>{
         if(response.status=="ok"){
-          alert("response status ok and")
+          // alert("response status ok and")
           console.log(response.data)
           console.log(typeof(response.data))
           this.router.navigate(['dashboard/attempting-paper'],{queryParams:{questions:JSON.stringify(response.data),examId:`${this.examIdProp}`}})
