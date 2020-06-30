@@ -47,9 +47,10 @@ export class DataService {
   FetchPaperDetails(d):any{
     return this.http.post('http://localhost:5000/fetch-paper-details',d)
   }
-  // FetchAllStudents(d):any{
-  //   return this.http.post('http://localhost:5000/fetch-all-students',d)
-  // }
+  UpdateTimeWagera(d):any{
+    return this.http.post('http://localhost:5000/update-time-wagera',d)
+  }
+ 
 }
    
 

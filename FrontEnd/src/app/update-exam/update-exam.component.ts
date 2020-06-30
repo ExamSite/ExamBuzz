@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-exam',
@@ -11,6 +11,10 @@ export class UpdateExamComponent implements OnInit {
   examId;
   questions;
   students;
+
+  time;
+  date;
+  duration;
 
 
   queProp;
@@ -23,7 +27,7 @@ export class UpdateExamComponent implements OnInit {
   helperArray;
 
 
-  constructor(private ds:DataService,private route:ActivatedRoute) { }
+  constructor(private ds:DataService,private route:ActivatedRoute,private router:Router) { }
 
   ngOnInit(): void {
     this.route.queryParamMap.subscribe((d)=>{
@@ -37,6 +41,9 @@ export class UpdateExamComponent implements OnInit {
         console.log("ok")
         this.questions = response.data.questions;
         this.students = response.data.students;
+        this.time = response.data.time;
+        this.date = response.data.date;
+        this.duration = response.data.duration;
         console.log("questions are" +JSON.stringify(this.questions))
 
         console.log("this is response data " + response.data)
@@ -56,7 +63,12 @@ export class UpdateExamComponent implements OnInit {
     })
   }
   update(){
-
+    this.ds.UpdateTimeWagera({examId:this.examId,time:this.time,date:this.date,duration:this.duration})
+    .subscribe((response)=>{
+      if(response.status=="ok"){
+        alert("updated successfully")
+      }
+    })
   }
   allstudents(){
   

@@ -263,12 +263,15 @@ app.post('/fetch-paper-details',bodyParser.json(),(req,res)=>{
     })
 })
 
-// app.post('/fetch-all-students',bodyParser.json(),(req,res)=>{
-//     var collection = connection.db(dbName).collection("Exams");
-//     collection.find({examId:req.body.examId}).toArray((err,docs)=>{
-//         if(!err && docs.length>0){
-//             res.send({status:"ok",data:docs[0]})
-//         }
-//     })
-// })
+app.post('/update-time-wagera',bodyParser.json(),(req,res)=>{
+    var collection = connection.db(dbName).collection("Exams")
+    collection.update({"examId":req.body.examId},{$set:{time:req.body.time,date:req.body.date,duration:req.body.duration}},(err,result)=>{
+        if(!err){
+            res.send({status:"ok"})
+        }
+        else{
+            res.send({status:"not ok"})
+        }
+    })
+})
 app.listen(5000, () => { console.log("server is listining on port 5000") });

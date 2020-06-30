@@ -51,6 +51,27 @@
 
 
 <div class="main">
+    <form class="form" #f1="ngForm">
+
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Exam Time</th>
+                <th>Exam Date</th>
+                <th>Exam Duration</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="time" [(ngModel)]="time" name="time"></td>
+                <td><input type="date" [(ngModel)]="date" name="date"></td>
+                <td><input type="number"[(ngModel)]="duration" name="duration"></td>
+            </tr>
+        </tbody>
+        <button (click)="update()">Update</button>
+    </table>
+</form>
 
 
 <form class="All" #f="ngForm">
@@ -71,6 +92,7 @@
     <!-- <button type="submit" class="button" (click)="update()">
         <h4>update</h4>
     </button> -->
+
 </form>
 <div class="container" >
     <h2>Students who appeared in the exam</h2>
