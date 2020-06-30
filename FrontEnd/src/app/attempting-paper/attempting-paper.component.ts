@@ -21,7 +21,8 @@ export class AttemptingPaperComponent implements OnInit {
   duration;
   temp;
   temp2;
-  temp3
+  temp3;
+  temp4;
 
   examDate;
   todaysDateObject;
@@ -40,6 +41,7 @@ export class AttemptingPaperComponent implements OnInit {
     this.route.queryParamMap.subscribe((d)=>{
       this.questions2 = d.get('questions')
       this.examId = d.get('examId')
+      
       // alert("exam id get " + this.examId)
 
       console.log("activated questions") 
@@ -61,19 +63,15 @@ export class AttemptingPaperComponent implements OnInit {
   .subscribe((response)=>{
     this.docsForFetchDate = response.data
     console.log(this.docsForFetchDate)
+    // alert(this.docsForFetchDate.duration)
    
     if(response.status=="ok"){
      
       // alert("response time"+ this.docsForFetchDate.time + " " + this.docsForFetchDate.date)
-
-
-      
-      
       this.todaysDateObject = new Date()
       if(this.todaysDateObject.getMonth()+1<10){
         this.temp = "0" + (this.todaysDateObject.getMonth()+1)
-        
-      }
+        }
 
 
 
@@ -84,35 +82,37 @@ export class AttemptingPaperComponent implements OnInit {
       if(this.date == this.docsForFetchDate.date){
         this.temp2 = this.docsForFetchDate.time.split(":")
         this.temp3 = this.time.split(":")
-        // alert(this.temp2[0] + " hello " + this.temp3[0])
-        if(this.temp2[0]<this.temp3[0]){
-          // alert("chota hai")
-          this.questions = this.questions2;
-          this.questions=JSON.parse(this.questions)
-          this.ans = new Array(this.questions.length);
+        this.temp4 = this.docsForFetchDate.time.split(":")
+        this.temp4[0]=Number(this.temp4[0])
+        this.temp4[1]=Number(this.temp4[1])
+        // alert("temp4 " + this.temp4[0] + " " + this.temp4[1] + "temp 3 is " + this.temp3[0] + " " + this.temp3)
 
-        }
-        else if(this.temp2[0]==this.temp3[0]){
-          if(this.temp2[1]<=this.temp3[1]){
-            // alert("sachi me chota hai")
-            this.questions = this.questions2;
+        
+        //finding paper end time//
+        this.endTime()
+        
+
+        if(this.temp3[0]>=this.temp2[0] && this.temp3[0]<=this.temp4[0]){
+          if((this.temp3[0]==this.temp2[0] && this.temp3[1]>=this.temp2[1]) || (this.temp3[0]==this.temp4[0] && this.temp3[1]<=this.temp4[1])){
+            // alert("sab theek he meri jaan")
+          this.questions = this.questions2;
           this.questions=JSON.parse(this.questions)
           this.ans = new Array(this.questions.length);
           }
           else{
-            console.log("abhi time nhi hua hai")
-            alert("be on time on test")
+            alert("be on time on test 0")
             this.router.navigate(['/dashboard'])
           }
+          
         }
         else{
-          alert("be on time on test")
-          this.router.navigate(['/dashboard'])
+          alert("be on time on test 1")
+            this.router.navigate(['/dashboard'])
         }
         
       }
       else{
-        alert("be on time on test")
+        alert("be on time on test 3")
             this.router.navigate(['/dashboard'])
       }
 
@@ -126,6 +126,37 @@ export class AttemptingPaperComponent implements OnInit {
     }
   })
   //new ds ends here /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  }
+
+  endTime(){
+    if(this.docsForFetchDate.duration>=60){
+      this.temp4[0] += Math.floor(this.docsForFetchDate.duration/60)
+      this.temp4[1] += this.docsForFetchDate.duration%60
+      // alert("endgame" + this.temp4)
+      if(this.temp4[1]>60){
+        this.temp4[0] += Math.floor(this.temp4[1]/60)
+        this.temp4[1] += this.temp4[1]%60;
+        // alert("endgame" + this.temp4)
+      }
+    }else{
+      this.temp4[1] += this.docsForFetchDate.duration%60
+      if(this.temp4[1]>60){
+        this.temp4[0] += Math.floor(this.temp4[1]/60)
+        this.temp4[1] += this.temp4[1]%60;
+      }
+    }
+    // alert("this .temp4 " + this.temp4[0] +":" + this.temp4[1])
+    this.addZero()
+    // alert("this .temp4 " + this.temp4[0] +":" + this.temp4[1])//
+  }
+
+  addZero(){
+    if(this.temp4[0]<10){
+      this.temp4[0]="0"+this.temp4[0]
+    }
+    if(this.temp4[1]<10){
+      this.temp4[1]="0"+this.temp4[1]
+    }
   }
 
   submit(){

@@ -238,7 +238,7 @@ app.post('/update-profile',bodyParser.json(),(req,res)=>{
     collection.update({Email:req.body.email},{$set:{Name:req.body.name,Username:req.body.username,Mobile:req.body.mobile,Email:req.body.emailUp,Password:req.body.password}},(err,result)=>{
         if(!err){
             
-            collection2.update({email:req.body.email},{$set:{email:req.body.emailUp}},(err,result)=>{
+            collection2.updateMany({email:req.body.email},{$set:{email:req.body.emailUp}},(err,result)=>{
                 if(!err){
                     res.send({status:"ok"})
                     console.log("this is running my baby and lets see what happens next" + req.body.emailUp)
