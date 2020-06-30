@@ -274,4 +274,24 @@ app.post('/update-time-wagera',bodyParser.json(),(req,res)=>{
         }
     })
 })
+
+app.post('/fetch-joined-exams',bodyParser.json(),(req,res)=>{
+    var collection = connection.db(dbName).collection("Exams")
+    collection.find({students:{$elemMatch:{email:req.body.email}}}).toArray((err,docs)=>{
+        if(!err){
+            console.log(docs)
+            res.send({status:"ok",data:docs})
+        }
+    })
+})
+
+app.post('/fetch-paper-details-for-student',bodyParser.json(),(req,res)=>{
+    var collection = connection.db(dbName).collection("Exams")
+    collection.find({"examId":req.body.examId}).toArray((err,docs)=>{
+        if(!err){
+            console.log(docs)
+            res.send({status:"ok",data:docs})
+        }
+    })
+})
 app.listen(5000, () => { console.log("server is listining on port 5000") });

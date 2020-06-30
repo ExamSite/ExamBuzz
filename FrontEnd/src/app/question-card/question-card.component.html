@@ -1,1 +1,43 @@
-<p>question-card works!</p>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<div class="container">
+
+<div class="marks">
+    <h2>You were Able to solve Total {{me.marks}}</h2>
+</div>
+
+<h2>Question paper </h2>
+    <div class="AllQues" *ngFor="let que of data.questions;let i = index">
+        <div class="Ques">
+            <h3>Question: {{que.question}}</h3>
+            <div class="Ans">
+                <p>option a: {{que.opt1}}</p>
+                <p>option b: {{que.opt2}}</p>
+                <p>option c: {{que.opt3}}</p>
+                <p>option d: {{que.opt4}}</p>
+                <p>ans: {{que.ans}}</p>
+
+        
+                <!-- console.log("a" + {{i+1}}) -->
+            </div>
+        </div>
+    </div>
+  
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Question no</th>
+                <th>Your Answer</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let me of me.submittedAns;let i = index;">
+                <td>{{i+1}}</td>
+                <td>{{me}}</td>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>

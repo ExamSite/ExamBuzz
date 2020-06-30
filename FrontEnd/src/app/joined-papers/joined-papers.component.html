@@ -1,1 +1,7 @@
-<p>joined-papers works!</p>
+
+<div class="exams">
+    <div class="exam1" *ngFor="let p of joinedExams" (click)="fun(p)">
+        <p>Exam : {{p.examName}} </p>
+        <P>id : {{p.examId}}</P>
+    </div>
+</div>

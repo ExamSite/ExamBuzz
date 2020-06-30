@@ -22,7 +22,6 @@ export class CreatedExamsComponent implements OnInit {
     this.ds.FetchPaperData({email:localStorage.getItem('email')})
     .subscribe((response)=>{
       if(response.status=="ok"){
-        // alert("this is working")
         this.createdExams = response.data
         // alert(this.createdExams.JSON())
         console.log(this.createdExams)

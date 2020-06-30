@@ -50,6 +50,12 @@ export class DataService {
   UpdateTimeWagera(d):any{
     return this.http.post('http://localhost:5000/update-time-wagera',d)
   }
+  FetchJoinedPapers(d):any{
+    return this.http.post('http://localhost:5000/fetch-joined-exams',d)
+  }
+  FetchPaperDetailsForStudent(d):any{
+    return this.http.post('http://localhost:5000/fetch-paper-details-for-student',d)
+  }
  
 }
    
