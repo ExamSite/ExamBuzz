@@ -75,7 +75,7 @@ export class AttemptingPaperComponent implements OnInit {
 
 
 
-      this.date = this.todaysDateObject.getFullYear() + '-' + this.temp +"-"+this.todaysDateObject.getDate()
+      this.date = this.todaysDateObject.getFullYear() + '-' + this.temp +"-"+((this.todaysDateObject.getDate()>=10)?(this.todaysDateObject.getDate()):("0"+this.todaysDateObject.getDate()))
       this.time = ((this.todaysDateObject.getHours()>=10)?(this.todaysDateObject.getHours()):("0"+this.todaysDateObject.getHours())) + ":" + ((this.todaysDateObject.getMinutes()>=10)?(this.todaysDateObject.getMinutes()):("0"+this.todaysDateObject.getMinutes()))
    
 
