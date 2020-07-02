@@ -80,6 +80,8 @@ export class AttemptingPaperComponent implements OnInit {
    
 
       if(this.date == this.docsForFetchDate.date){
+        this.duration = this.docsForFetchDate.duration;
+
         this.temp2 = this.docsForFetchDate.time.split(":")
         this.temp3 = this.time.split(":")
         this.temp4 = this.docsForFetchDate.time.split(":")
@@ -93,7 +95,7 @@ export class AttemptingPaperComponent implements OnInit {
         
 
         if(this.temp3[0]>=this.temp2[0] && this.temp3[0]<=this.temp4[0]){
-          if((this.temp3[0]==this.temp2[0] && this.temp3[1]>=this.temp2[1]) || (this.temp3[0]==this.temp4[0] && this.temp3[1]<=this.temp4[1])){
+          if((this.temp3[0]==this.temp2[0] && (this.temp3[1]>=this.temp2[1] && this.temp3[1]<=this.temp4[1])) || (this.temp3[0]==this.temp4[0] && this.temp3[1]<=this.temp4[1])){
             // alert("sab theek he meri jaan")
           this.questions = this.questions2;
           this.questions=JSON.parse(this.questions)
@@ -135,19 +137,19 @@ export class AttemptingPaperComponent implements OnInit {
       // alert("endgame" + this.temp4)
       if(this.temp4[1]>60){
         this.temp4[0] += Math.floor(this.temp4[1]/60)
-        this.temp4[1] += this.temp4[1]%60;
+        this.temp4[1] = this.temp4[1]%60;
         // alert("endgame" + this.temp4)
       }
     }else{
       this.temp4[1] += this.docsForFetchDate.duration%60
       if(this.temp4[1]>60){
         this.temp4[0] += Math.floor(this.temp4[1]/60)
-        this.temp4[1] += this.temp4[1]%60;
+        this.temp4[1] = this.temp4[1]%60;
       }
     }
     // alert("this .temp4 " + this.temp4[0] +":" + this.temp4[1])
     this.addZero()
-    // alert("this .temp4 " + this.temp4[0] +":" + this.temp4[1])//
+    // alert("this .temp4 " + this.temp4[0] +":" + this.temp4[1])
   }
 
   addZero(){
