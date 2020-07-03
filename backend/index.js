@@ -240,8 +240,16 @@ app.post('/update-profile',bodyParser.json(),(req,res)=>{
             
             collection2.updateMany({email:req.body.email},{$set:{email:req.body.emailUp}},(err,result)=>{
                 if(!err){
-                    res.send({status:"ok"})
+                    
                     console.log("this is running my baby and lets see what happens next" + req.body.emailUp)
+                    collection2.updateMany({students:{$elemMatch:{email:req.body.email}}},{$set:{students:{email:req.body.emailUp}}},(err,result)=>{
+                        if(!err){
+                            res.send({status:"ok"})
+                        }
+                        else{
+                            console.log("error" + err)
+                        }
+                    })
                 }
             })
         }

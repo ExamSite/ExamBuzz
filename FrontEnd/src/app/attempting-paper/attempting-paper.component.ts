@@ -95,13 +95,36 @@ export class AttemptingPaperComponent implements OnInit {
         
 
         if(this.temp3[0]>=this.temp2[0] && this.temp3[0]<=this.temp4[0]){
-          if((this.temp3[0]==this.temp2[0] && (this.temp3[1]>=this.temp2[1] && this.temp3[1]<=this.temp4[1])) || (this.temp3[0]==this.temp4[0] && this.temp3[1]<=this.temp4[1])){
+          // if((this.temp3[0]==this.temp2[0] && (this.temp3[1]>=this.temp2[1] && this.temp3[1]<=this.temp4[1])) || (this.temp3[0]==this.temp4[0] && this.temp3[1]<=this.temp4[1])){
             // alert("sab theek he meri jaan")
-          this.questions = this.questions2;
+            if((this.temp2[0]==this.temp4[0]) && (this.temp2[1]<=this.temp3[1] && this.temp3[1]<=this.temp4[1])){
+              alert("1 " + this.temp2)
+              alert("1 " + this.temp3)
+              alert("1 " + this.temp4)
+              this.questions = this.questions2;
+          this.questions=JSON.parse(this.questions)
+          this.ans = new Array(this.questions.length);
+          }
+          else if(this.temp2[0]==this.temp3[0] && this.temp2[0]!=this.temp4[0] && this.temp3[1]>=this.temp2[1]){
+            alert("2 " + this.temp2)
+              alert("2 " + this.temp3)
+              alert("2 " + this.temp4)
+              this.questions = this.questions2;
+          this.questions=JSON.parse(this.questions)
+          this.ans = new Array(this.questions.length);
+          }
+          else if(this.temp3[0]==this.temp4[0] && this.temp3[1]<=this.temp4[1]){
+            alert("3 " + this.temp2)
+              alert("3 " + this.temp3)
+              alert("3 " + this.temp4)
+              this.questions = this.questions2;
           this.questions=JSON.parse(this.questions)
           this.ans = new Array(this.questions.length);
           }
           else{
+            alert(this.temp2)
+            alert(this.temp3)
+            alert(this.temp4)
             alert("be on time on test 0")
             this.router.navigate(['/dashboard'])
           }
