@@ -27,8 +27,8 @@ export class CreationPageComponent implements OnInit {
   }
   submit(){
     if(this.quesProp==null && this.opt1Prop==null && this.opt2Prop==null && this.opt3Prop==null && this.opt4Prop==null && this.ansProp==null){
-      alert(this.dateProp)
-      alert("put values")
+      // alert(this.dateProp)
+      // alert("put values")
       return
     }
     this.questionsObj.push(
@@ -65,8 +65,8 @@ export class CreationPageComponent implements OnInit {
     .subscribe((response)=>{
       
       if(response.status=="ok"){
-        alert("response status ok")
-        alert(this.dateProp)
+        // alert("response status ok")
+        // alert(this.dateProp)
       }
       else{
         alert("response status not ok")

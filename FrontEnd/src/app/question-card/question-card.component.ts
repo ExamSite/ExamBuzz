@@ -35,7 +35,7 @@ export class QuestionCardComponent implements OnInit {
         })
         this.me = this.me[0]
         console.log(this.me)
-        alert("hurrey")
+        // alert("hurrey")
 
       }
       else{

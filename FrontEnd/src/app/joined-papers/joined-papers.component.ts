@@ -18,14 +18,14 @@ export class JoinedPapersComponent implements OnInit {
       if(response.status=="ok"){
         this.joinedExams =response.data
         // console.log(this.joinedExams)
-        alert("okkk")
+        // alert("okkk")
       }
     })
 
   }
 
   fun(d){
-    alert("Clicked")
+    // alert("Clicked")
     this.router.navigate(['/dashboard/question-card'],{queryParams:{examId:d.examId}})
   }
 

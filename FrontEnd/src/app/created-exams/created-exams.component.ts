@@ -29,7 +29,7 @@ export class CreatedExamsComponent implements OnInit {
       }
       else{
 
-        alert("this aint working")
+        // alert("this aint working")
       }
 
     })

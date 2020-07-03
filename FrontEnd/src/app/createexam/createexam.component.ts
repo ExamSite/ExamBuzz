@@ -34,9 +34,9 @@ export class CreateexamComponent implements OnInit {
       .subscribe((response)=>{
         if(response.status=="ok"){
           alert("registrations successfull")
-          alert(localStorage.getItem('email'))
+          // alert(localStorage.getItem('email'))
           localStorage.setItem('examId',this.examIdProp)
-          alert(localStorage.getItem('examId'))
+          // alert(localStorage.getItem('examId'))
           this.router.navigate(['/dashboard/creationPage'])
         }else{
           alert("please use an unique id")
