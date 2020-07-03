@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Francois+One&family=MuseoModerno:wght@500&display=swap');
+
+*{
+    font-family: 'Francois One', sans-serif;
+    color: rgb(50,50,50);
+    text-align:justify;
+    
+}
+
+.main{
+    display: flex;
+    height:80vh;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+}
+.team-members{
+    padding:20px;
+    margin:0 20px;
+}
+.team{
+    display:flex;
+    padding:50px;
+    width: 80%;
+    align-items: center;
+    justify-content: space-evenly;
+}
+ul,li{
+    list-style-type: disc;
+
+}
+h1,li{
+    padding:5px;
+    font-size:32px;
+    font-weight: 500;
+}
+h1{
+    padding:20px;
+    padding-left:0;
+    font-size: 40px;
+    font-weight: 1000;
+}
