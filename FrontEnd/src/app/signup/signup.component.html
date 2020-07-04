@@ -5,31 +5,31 @@
 
 <div class="main">
 <div class="SignUpForm">
-    <form #f="ngForm" class="was-validated">
+    <form #f="ngForm">
         <div class="form-group">
             <label for="name">Name:</label>
             <input #nameref="ngModel" [(ngModel)]="NameProp" name="name" type="text" class="form-control" placeholder="Enter your Name" id="name" required>
-            <div class="invalid-feedback">Please fill out this field.</div>
+            <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
         </div>
         <div class="form-group">
             <label for="uname">Username:</label>
             <input #emailref="ngModel" [(ngModel)]="UserProp" name="email" type="text" class="form-control" placeholder="Enter your Username" id="uname" required>
-            <div class="invalid-feedback">Please fill out this field.</div>
+            <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
         </div>
         <div class="form-group">
             <label for="mobile">Mobile No:</label>
             <input #emailref="ngModel" [(ngModel)]="MobProp" name="mobile" type="text" class="form-control" placeholder="Enter your Mobile number" id="mobile" required>
-            <div class="invalid-feedback">Please fill out this field.</div>
+            <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
         </div>
         <div class="form-group">
             <label for="email">Email address:</label>
             <input #emailref="ngModel" [(ngModel)]="EmailProp" name="email" type="email" class="form-control" placeholder="Enter your Email" id="email" required>
-            <div class="invalid-feedback">Please fill out this field.</div>
+            <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
         </div>
         <div class="form-group">
             <label for="pass">Password:</label>
             <input #passref="ngModel" [(ngModel)]="PassProp" name="password" type="password" class="form-control" placeholder="Enter your Password" id="pass" required>
-            <div class="invalid-feedback">Please fill out this field.</div>
+            <!-- <div class="invalid-feedback">Please fill out this field.</div> -->
         </div>
         <!--<div class="form-group">
             <label for="rpass">Confirm your Password:</label>

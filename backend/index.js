@@ -4,12 +4,14 @@ const cors = require('cors');
 const { response } = require('express');
 const MongoClient = require('mongodb').MongoClient;
 const ObjectId = require('mongodb').ObjectId;
+const path = require('path')
 
 var dbName = "GrrasProject"
 
 const app = express();
 
 app.use(cors());
+app.use(express.static(path.join(__dirname,'blank')))
 
 // var client = new MongoClient( 'mongodb://localhost:27017/mypro', {useNewUrlParser:true});
 // var client = new MongoClient('mongodb+srv://root:root@cluster.i5ume.gcp.mongodb.net/dbName?retryWrites=true&w=majority', { useNewUrlParser: true });
@@ -39,6 +41,10 @@ app.get('/user', (req, res)=>{
     res.send({status:"ok", data:[{name:"X", age:78, id:id},{name:"Y", age:67}]});
 })*/
 
+
+app.get('/',(req,res)=>{
+    res.sendFile('index.html')
+})
 
 app.post('/sign-in', bodyParser.json(), (req, res) => {
     var collection = connection.db(dbName).collection('Users');
@@ -302,4 +308,4 @@ app.post('/fetch-paper-details-for-student',bodyParser.json(),(req,res)=>{
         }
     })
 })
-app.listen(5000, () => { console.log("server is listining on port 5000") });
+app.listen(80, () => { console.log("server is listining on port 5000") });

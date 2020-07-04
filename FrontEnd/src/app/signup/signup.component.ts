@@ -28,6 +28,7 @@ export class SignupComponent implements OnInit {
     }*/
   
   SignUp(){
+    // alert("clicked")
     this.ds.SignUp({ Name: this.NameProp, Username: this.UserProp, Mobile: this.MobProp, Email: this.EmailProp, Password: this.PassProp })
     .subscribe((response) => {
       if (this.NameProp == null || this.UserProp == null || this.MobProp == null || this.EmailProp == null || this.PassProp == null){
